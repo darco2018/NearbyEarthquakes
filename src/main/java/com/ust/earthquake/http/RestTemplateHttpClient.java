@@ -1,9 +1,17 @@
 package com.ust.earthquake.http;
 
+import com.ust.earthquake.domain.Earthquake;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-public class RestTemplateHttpClient {
+import java.util.List;
+
+/*Web services for fetching Earthquakes are located here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+We are interested in all earthquakes that happened during last 30 days: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson
+*/
+@Service
+public class RestTemplateHttpClient implements HttpClientInt {
 
     private final RestTemplate restTemplate;
 
@@ -11,5 +19,11 @@ public class RestTemplateHttpClient {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-
+        @Override
+    public List<Earthquake> fetchEarthquakes() {
+        //TODO Fetch a list of earthquakes that happened during last 30 days
+            // The if two earthquakes happened in exactly the same location (they have the same lat/lon)
+            // we only want one of them to be printed
+        return null;
+    }
 }

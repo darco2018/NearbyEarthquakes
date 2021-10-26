@@ -5,5 +5,6 @@ import java.util.List;
 
 public interface HttpClientInt {
 
-    public List<Earthquake> fetchEarthquakes(double latitude, double longitude);
+    List<Earthquake> fetchEarthquakes();
+
 }

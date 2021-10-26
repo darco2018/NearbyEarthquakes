@@ -11,6 +11,13 @@ public class Location {
         this.longitude = longitude;
     }
 
+    public static int getDistance(Location loc1, Location loc2){
+        //TODO implement distance between 2 locations
+        // We would like each distance to be rounded to full kilometers
+        int distance = -1;
+        return distance;
+    }
+
     public double getLatitude() {
         return latitude;
     }
