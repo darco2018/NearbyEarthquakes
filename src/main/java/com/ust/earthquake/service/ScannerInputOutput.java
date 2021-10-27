@@ -2,9 +2,10 @@ package com.ust.earthquake.service;
 
 import com.ust.earthquake.domain.Earthquake;
 import com.ust.earthquake.domain.Location;
-import com.ust.earthquake.service.InputOutputInt;
 
+import java.io.InputStream;
 import java.util.List;
+import java.util.Scanner;
 
 public class ScannerInputOutput implements InputOutputInt {
 
@@ -17,7 +18,21 @@ public class ScannerInputOutput implements InputOutputInt {
             -73.935242
             ```
          */
-        return new Location(0,0);
+        double latitude = -1;
+        double longitude = -1;
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter latitude: ");
+             latitude = scanner.nextDouble();
+            System.out.println("Latitude is " + latitude);
+            System.out.println("Enter longitude: ");
+            longitude = scanner.nextDouble();
+            System.out.println("Longitude is " + longitude);
+        } catch (Exception e) {
+            System.out.println("You didn't enter a double correctly. Please, restart the program!");
+        }
+
+        return new Location(new double[]{latitude, longitude});
     }
 
     @Override

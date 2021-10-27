@@ -1,17 +1,21 @@
 package com.ust.earthquake.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Earthquake {
 
     private Location location;
-    private String title;
+    private Properties properties;
 
-    public Earthquake(Location location, String info) {
+    @JsonCreator
+    public Earthquake(@JsonProperty("geometry") Location location,
+                      @JsonProperty("properties") Properties properties) {
         this.location = location;
-        this.title = info;
+        this.properties = properties;
     }
 
     public List<Earthquake> findNearestEarthquakes(int count, List<Earthquake> earthquakes, Location location){
@@ -21,32 +25,5 @@ public class Earthquake {
         return new ArrayList<>();
     }
 
-    public Location getLocation() {
-        return location;
-    }
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Earthquake that = (Earthquake) o;
-        return Objects.equals(location, that.location);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(location);
-    }
 }
