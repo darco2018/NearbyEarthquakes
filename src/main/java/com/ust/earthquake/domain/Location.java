@@ -96,4 +96,17 @@ public class Location {
     public String toString() {
         return Arrays.toString(coordinates);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Arrays.equals(coordinates, location.coordinates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(coordinates);
+    }
 }
