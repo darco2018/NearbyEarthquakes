@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Properties {
 
     private final String title;
+    // other properties are ignored
 
     @JsonCreator
     public Properties(@JsonProperty("title") String title) {
@@ -13,6 +14,11 @@ public class Properties {
     }
 
     public String getTitle() {
+        return title;
+    }
+
+    @Override
+    public String toString() {
         return title;
     }
 }

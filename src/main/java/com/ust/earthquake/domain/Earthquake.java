@@ -18,12 +18,18 @@ public class Earthquake {
         this.properties = properties;
     }
 
-    public List<Earthquake> findNearestEarthquakes(int count, List<Earthquake> earthquakes, Location location){
+    public static List<Earthquake> findNearestEarthquakes(int count, List<Earthquake> earthquakes, Location location){
         //TODO find 10 earthquakes with the smallest distance to the given city,
         //  order from the closest to the furthest.
+
+        //earthquakes.sort();
 
         return new ArrayList<>();
     }
 
 
+    @Override
+    public String toString() {
+        return location +      ", " + properties;
+    }
 }

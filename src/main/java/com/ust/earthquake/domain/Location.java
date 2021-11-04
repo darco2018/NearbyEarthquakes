@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
 
+
+/*https://gps-coordinates.org/coordinate-converter.php
+ * https://gps-coordinates.org/distance-between-cities.php
+ * https://www.geodatasource.com/developers/java
+ * https://www.latlong.net/*/
+
 public class Location {
     private double[] coordinates;
 
@@ -50,7 +56,7 @@ public class Location {
     }
 
 
-        public static int distanceTwo(double lat1, double lon1, double lat2, double lon2, String unit) { //"K" for km
+        public static int getDistance(double lat1, double lon1, double lat2, double lon2, String unit) { //"K" for km
             if ((lat1 == lat2) && (lon1 == lon2)) {
                 return 0;
             }
@@ -88,8 +94,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "coordinates=" + Arrays.toString(coordinates) +
-                '}';
+        return Arrays.toString(coordinates);
     }
 }
