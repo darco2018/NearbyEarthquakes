@@ -31,9 +31,6 @@ public class RestTemplateHttpClient implements HttpClientInt {
 
         @Override
     public List<Earthquake> fetchEarthquakes() {
-            //TODO Fetch a list of earthquakes that happened during last 30 days
-            // If two earthquakes happened in exactly the same location (they have the same lat/lon)
-            // we only want one of them to be printed
             Data data = null;
             try {
                  data = this.restTemplate.getForObject(REQUEST_URL, Data.class);

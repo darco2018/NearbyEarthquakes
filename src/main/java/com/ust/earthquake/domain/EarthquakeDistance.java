@@ -1,21 +1,26 @@
 package com.ust.earthquake.domain;
 
 public class EarthquakeDistance implements Comparable<EarthquakeDistance> {
-    public Earthquake getEarthquake() {
-        return earthquake;
-    }
 
-    private Earthquake earthquake;
-    private int distance;
+    private final Earthquake earthquake;
+    private final int distance;
 
-       public EarthquakeDistance(Earthquake earthquake, int distance) {
+    public EarthquakeDistance(Earthquake earthquake, int distance) {
         this.earthquake = earthquake;
         this.distance = distance;
     }
 
+    public Earthquake getEarthquake() {
+        return earthquake;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
     @Override
     public String toString() {
-        return earthquake + ", dist: " + distance;
+        return earthquake.getProperties().getTitle() + " || " + getDistance();
     }
 
     @Override

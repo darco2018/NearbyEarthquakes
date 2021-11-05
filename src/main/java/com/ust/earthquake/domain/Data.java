@@ -3,9 +3,6 @@ package com.ust.earthquake.domain;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Data {
 
     // type
@@ -27,14 +24,14 @@ public class Data {
 
     @Override
     public String toString() {
-        String result = "";
 
         /*List list = Arrays.asList(earthquakes);
         list.forEach(e -> result + e.toString() + "\n";*/
         // TODO figure out how to print it with lambdas
 
+        StringBuilder result = new StringBuilder();
         for (Earthquake earthquake : earthquakes) {
-            result+= earthquake.toString() + "\n";
+            result.append(earthquake.toString()).append("\n");
         }
 
         return result + "Fetched " + earthquakes.length + " earthquakes";

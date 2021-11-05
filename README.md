@@ -60,3 +60,6 @@ M 1.9 - 13km SW of La Malbaie, Canada || 814
 M 2.4 - 16km N of Lenoir, North Carolina || 840  
 M 2.4 - 12km ESE of Carlisle, Kentucky || 896  
 ```
+--------------------
+Todo check this
+earthquakeDistance.sort();

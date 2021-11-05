@@ -1,5 +1,6 @@
 package com.ust.earthquake.domain;
 
+import com.ust.earthquake.service.Utils;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,14 +17,14 @@ class LocationTest {
 
     @Test
     void getDistanceWithLocations() {
-        int actual = Location.getDistance(cracow, warsaw);
+        int actual = Utils.getDistance(cracow, warsaw);
         assertEquals(cracowWarsawDistanceInKilometers,actual);
     }
 
 
     @Test
     void getDistanceWithCoordinates() {
-        int actual = Location.getDistance(cracow.getLatitude(),cracow.getLongitude(),warsaw.getLatitude(),
+        int actual = Utils.getDistance(cracow.getLatitude(),cracow.getLongitude(),warsaw.getLatitude(),
                 warsaw.getLongitude(), "K");
         assertEquals(cracowWarsawDistanceInKilometers,actual);
     }
