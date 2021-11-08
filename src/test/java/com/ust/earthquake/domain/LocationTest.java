@@ -2,7 +2,8 @@ package com.ust.earthquake.domain;
 
 import com.ust.earthquake.service.Utils;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /*https://gps-coordinates.org/coordinate-converter.php
@@ -18,14 +19,14 @@ class LocationTest {
     @Test
     void getDistanceWithLocations() {
         int actual = Utils.getDistance(cracow, warsaw);
-        assertEquals(cracowWarsawDistanceInKilometers,actual);
+        assertEquals(cracowWarsawDistanceInKilometers, actual);
     }
 
 
     @Test
     void getDistanceWithCoordinates() {
-        int actual = Utils.getDistance(cracow.getLatitude(),cracow.getLongitude(),warsaw.getLatitude(),
+        int actual = Utils.getDistance(cracow.getLatitude(), cracow.getLongitude(), warsaw.getLatitude(),
                 warsaw.getLongitude(), "K");
-        assertEquals(cracowWarsawDistanceInKilometers,actual);
+        assertEquals(cracowWarsawDistanceInKilometers, actual);
     }
 }

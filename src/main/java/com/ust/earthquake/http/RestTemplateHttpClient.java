@@ -1,6 +1,6 @@
 package com.ust.earthquake.http;
 
-import com.ust.earthquake.domain.Data;
+import com.ust.earthquake.domain.EarthquakeJSONData;
 import com.ust.earthquake.domain.Earthquake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,27 +19,26 @@ We are interested in all earthquakes that happened during last 30 days: https://
 @Service
 public class RestTemplateHttpClient implements HttpClientInt {
 
-    Logger logger = LoggerFactory.getLogger(RestTemplateHttpClient.class);
-
     private final RestTemplate restTemplate;
     private final String REQUEST_URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+    Logger logger = LoggerFactory.getLogger(RestTemplateHttpClient.class);
 
     public RestTemplateHttpClient(RestTemplateBuilder restTemplateBuilder) {
         logger.info("Created RestTemplateHttpClient...");
         this.restTemplate = restTemplateBuilder.build();
     }
 
-        @Override
+    @Override
     public List<Earthquake> fetchEarthquakes() {
-            Data data = null;
-            try {
-                 data = this.restTemplate.getForObject(REQUEST_URL, Data.class);
-            } catch (Exception e){
-                logger.error("Failed to fetch data from " + REQUEST_URL );
-                 e.getStackTrace();
-            }
+        EarthquakeJSONData data = null;
+        try {
+            data = this.restTemplate.getForObject(REQUEST_URL, EarthquakeJSONData.class);
+        } catch (Exception e) {
+            logger.error("Failed to fetch data from " + REQUEST_URL);
+            e.getStackTrace();
+        }
 
-        return  Objects.isNull(data) ?
-               new ArrayList<>() : Arrays.asList(data.getEarthquakes());
+        return Objects.isNull(data) ?
+                new ArrayList<>() : Arrays.asList(data.getEarthquakes());
     }
 }

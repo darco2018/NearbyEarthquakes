@@ -3,14 +3,14 @@ package com.ust.earthquake.domain;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Data {
+public class EarthquakeJSONData {
 
     // type
     // metadata
     Earthquake[] earthquakes;
 
     @JsonCreator
-    public Data(@JsonProperty("features") Earthquake[] earthquakes) {
+    public EarthquakeJSONData(@JsonProperty("features") Earthquake[] earthquakes) {
         this.earthquakes = earthquakes;
     }
 

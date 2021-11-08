@@ -25,7 +25,7 @@ public class Location {
         return this.coordinates[0];
     }
 
-     public double getLongitude() {
+    public double getLongitude() {
         return this.coordinates[1];
     }
 
